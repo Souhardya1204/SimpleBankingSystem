@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet"href="{{ url_for('static',filename='assets/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/fonts/fontawesome-all.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/fonts/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/fonts/fontawesome5-overrides.min.css')}}">
+        {% block stylesheet %}{% endblock %}
+    </head>
+
+<body id="page-top">
+    
+    <div class="main_body">
+        <div class="navbar navbar-expand-md" style=" background: #118da3 ;">
+    
+            <a href="/" class="navbar-brand font-weight-bold text-white text-center" style="font-size:2em"> Bank of India</a>
+            <button class="navbar-toggler text-white " type="button" data-toggle="collapse" data-target="#collapsenavbar">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link text-white">ABOUT</a></li>
+                    <li class="nav-item">
+                        <a href="/customers" class="nav-link text-white">CUSTOMER DETAILS</a></li>
+                    <li class="nav-item">
+                        <a href="/history" class="nav-link text-white">TRANSACTION HISTORY</a></li>    
+                    </ul>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+            <div class="text-center my-auto copyright"><span>Copyright © Bank OF India 2021</span></div>
+        </div>
+    </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/chart.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/bs-init.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{{ url_for('static',filename='assets/js/theme.js')}}"></script>
+</body>
+
+</html>

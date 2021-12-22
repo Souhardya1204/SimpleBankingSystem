@@ -1,0 +1,141 @@
+{% extends "page.html" %}
+{% block title %}Customers{% endblock %}
+{% block stylesheet %}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .main_body
+        {
+            width:100%;
+            height:auto;
+            background-image:linear-gradient(to right, #77dfd9,#78dff1,#4cdbee,#18afca,#59e0c3,#1c6774);
+
+        }
+        .navbar
+        {
+            width:100%;
+            white-space:nowrap;
+            background-color: #5E11A3;
+        }
+        .main_div
+        {
+            width:100%;
+            height:100vh;
+        
+        }
+        *{
+            margin:0;
+            padding:0;
+        box-sizing:border-box;
+        }
+        .display_table
+        {
+            width:100vw;
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            text-align:center;
+        }
+        .center_div
+        {
+            width:90vw;
+            height:80vh;
+            background-image:url("{{ url_for('static',filename='img/transfer1.jpg')}}");
+            opacity: 1;
+            background-repeat:round;
+            background-size:100%;
+            padding:20px 0 0 0;
+            box-shadow:0 10px 20px 0 rgba(0,0,0,0.03);
+            border-radius:10px;
+            margin-left:30px;
+        }
+        h1
+        {
+            font-size:18px;
+            color:#000;
+            text-align:center;
+            margin-top:-20px;
+            margin-bottom:20px;
+        }
+        table
+        {
+            border-collapse:collapse;
+            background-color:rgb(31, 29, 29);
+            box-shadow:0 10px 20px 0 rgba(175, 139, 139, 0.03);
+            border-radius: 10px;
+            border-collapse:collapse;
+            table-layout:fixed;
+            opacity:0.7;
+            color:#F7CC1A;
+            font-weight:bold;
+            margin:auto;
+        }
+        th{
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            font-size: 20px;
+            opacity: 1;
+        }
+        td
+        {
+        border:1px solid #f5efef;
+        padding:8px 30px;
+        text-align:center;
+        opacity:1.5;
+        color:#f8f5f5 ; 
+        }
+        th{
+            text-transform:uppercase;
+            font-weight:500;
+        }
+        td
+        {
+            font-size:16px;
+        }
+        
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="display_table">
+        <h1 style="font-size: 1.5em;font-family:sans-serif;color: white;">Customer Details</h1>
+        <div class="center_div">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Amount</th>
+                            <th colspan="2">operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {% for row in data %}
+                            <form method="POST" action="{{ url_for('make') }}">
+                                <tr>
+                                    <td>{{row.id}}</td>
+                                    <td>{{row.name}}</td>
+                                    <td>{{row.email}}</td>
+                                    <td>{{row.curr_bal}}</td>
+                                    <td>
+                                    <input type="hidden" name="cid" value="{{row.id}}"/>
+                                    <input type="hidden" name="cname" value="{{row.name}}"/>
+                                    <input type="hidden" name="cemail" value="{{row.email}}"/>
+                                <input type="hidden" name="cbal" value="{{row.curr_bal}}"/>
+                            <input type="submit" value="Transfer Money" class="btnAddAction"/>
+                                    </td>
+                                </tr>
+                            </form>
+                            {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

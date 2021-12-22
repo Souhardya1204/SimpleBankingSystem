@@ -1,0 +1,22 @@
+{% extends "page.html" %}
+{% block title %}Success{% endblock %}
+{% block content %}
+<div class="container-fluid" style="padding-top:2%">
+    <h3 class="text-dark mb-4">Transaction Successful</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">Transaction Info</p>
+        </div>
+        <div class="card-body">
+            <p>Sender : {{sender}}</p>
+            <p>Receiver : {{receiver}}</p>
+            <p>Amount : {{'%0.2f' % amount|float}}</p>
+            <p>Sender Balance : {{'%0.2f' % sbal|float}}</p>
+            <p>Receiver Balance : {{'%0.2f' % rbal|float}}</p>
+        </div>
+        <div class="col-sm-3 mx-auto"style="padding-bottom: 2em;">
+        <a href="{{transaction}}" role="button" class="btn btn-primary " >View Transactions</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
